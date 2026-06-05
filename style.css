@@ -1,0 +1,415 @@
+/* 1. Настройки шрифтов и Глобальные переменные */
+@import url('https://googleapis.com');
+
+:root {
+    --bg-main: #f8faf7;       /* Мягкий светлый эко-фон */
+    --bg-surface: #ffffff;    /* Белый для карточек */
+    --color-primary: #2d5a27; /* Насыщенный зеленый (лесной) */
+    --color-accent: #8faf86;  /* Нежный шалфейный оттенок */
+    --color-dark: #1e291b;    /* Почти черный для контрастного текста */
+    --color-muted: #6b7280;   /* Серый для второстепенного текста */
+    --radius-lg: 24px;
+    --radius-md: 16px;
+    --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    --container-max: 1140px;
+}
+
+/* 2. Сброс базовых стилей */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: var(--bg-main);
+    color: var(--color-dark);
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+
+/* 3. Вспомогательные классы и Кнопки */
+.container {
+    width: 100%;
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 32px;
+    border-radius: 50px;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: var(--transition);
+    border: none;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background-color: var(--color-primary);
+    color: #ffffff;
+    box-shadow: 0 10px 25px rgba(45, 90, 39, 0.2);
+}
+
+.btn-primary:hover {
+    background-color: var(--color-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 15px 30px rgba(45, 90, 39, 0.3);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--color-primary);
+    border: 2px solid var(--color-accent);
+}
+
+.btn-secondary:hover {
+    background-color: rgba(143, 175, 134, 0.1);
+    border-color: var(--color-primary);
+}
+
+.section-title {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 60px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+/* 4. Навигация (Header) */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 20px 0;
+    background-color: rgba(248, 250, 247, 0.8);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--color-dark);
+    text-decoration: none;
+}
+
+.logo span {
+    color: var(--color-primary);
+}
+
+.nav {
+    display: flex;
+    gap: 40px;
+}
+
+.nav-link {
+    color: var(--color-dark);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition);
+    opacity: 0.8;
+}
+
+.nav-link:hover {
+    opacity: 1;
+    color: var(--color-primary);
+}
+
+/* 5. Главный экран (Hero) */
+.hero {
+    padding: 180px 0 100px;
+}
+
+.hero-container {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    align-items: center;
+    gap: 60px;
+}
+
+.hero-badge {
+    display: inline-block;
+    background-color: rgba(45, 90, 39, 0.08);
+    color: var(--color-primary);
+    padding: 6px 16px;
+    border-radius: 30px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 24px;
+}
+
+.hero-title {
+    font-size: 3.8rem;
+    line-height: 1.15;
+    font-weight: 700;
+    margin-bottom: 24px;
+    letter-spacing: -1px;
+}
+
+.hero-title span {
+    color: var(--color-primary);
+}
+
+.hero-text {
+    font-size: 1.15rem;
+    color: var(--color-muted);
+    margin-bottom: 40px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 20px;
+}
+
+/* Эко-анимация в Hero */
+.hero-visual {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.abstract-circle {
+    width: 320px;
+    height: 320px;
+    background: linear-gradient(135deg, var(--color-accent), #d2ebd0);
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    animation: organic-morph 8s ease-in-out infinite alternate;
+}
+
+.plant-emoji {
+    position: absolute;
+    font-size: 9rem;
+    filter: drop-shadow(0 20px 30px rgba(0,0,0,0.1));
+    animation: floating 4s ease-in-out infinite;
+}
+
+@keyframes organic-morph {
+    0% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+    100% { border-radius: 40% 60% 70% 30% / 40% 60% 30% 70%; }
+}
+
+@keyframes floating {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+/* 6. Карточки ухода (Guide) */
+.guide {
+    padding: 100px 0;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 32px;
+}
+
+.card {
+    background-color: var(--bg-surface);
+    padding: 48px 40px;
+    border-radius: var(--radius-lg);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.01), 0 20px 40px rgba(0, 0, 0, 0.02);
+    transition: var(--transition);
+    border: 1px solid rgba(0, 0, 0, 0.02);
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 30px 60px rgba(45, 90, 39, 0.08);
+    border-color: rgba(45, 90, 39, 0.1);
+}
+
+.card-icon {
+    font-size: 2.8rem;
+    margin-bottom: 24px;
+}
+
+.card-title {
+    font-size: 1.35rem;
+    margin-bottom: 16px;
+    font-weight: 600;
+}
+
+.card-text {
+    color: var(--color-muted);
+    font-size: 0.95rem;
+}
+
+/* 7. Раздел растений (Plants) */
+.plants {
+    padding: 100px 0;
+    background-color: rgba(143, 175, 134, 0.08);
+}
+
+.plants-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 32px;
+}
+
+.plant-card {
+    background: var(--bg-surface);
+    border-radius: var(--radius-md);
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 240px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+    transition: var(--transition);
+}
+
+.plant-card:hover {
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+}
+
+.plant-badge {
+    align-self: flex-start;
+    background-color: #f0fdf4;
+    color: #166534;
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.plant-name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.plant-desc {
+    color: var(--color-muted);
+    font-size: 0.95rem;
+    margin-bottom: 24px;
+}
+
+.plant-meta {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    border-top: 1px solid #f3f4f6;
+    padding-top: 16px;
+}
+
+/* 8. Контактная форма */
+.contact {
+    padding: 100px 0;
+}
+
+.contact-container {
+    max-width: 680px;
+}
+
+.contact-box {
+    background-color: var(--bg-surface);
+    padding: 60px;
+    border-radius: var(--radius-lg);
+    box-shadow: 0 40px 80px rgba(45, 90, 39, 0.06);
+    text-align: center;
+}
+
+.contact-box h2 {
+    font-size: 2.2rem;
+    margin-bottom: 16px;
+    font-weight: 700;
+}
+
+.contact-box p {
+    color: var(--color-muted);
+    margin-bottom: 40px;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 16px 24px;
+    border-radius: 12px;
+    border: 2px solid #e5e7eb;
+    background-color: #fbfcfb;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: var(--transition);
+    outline: none;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: var(--color-primary);
+    background-color: #ffffff;
+    box-shadow: 0 0 0 4px rgba(45, 90, 39, 0.05);
+}
+
+/* 9. Подвал (Footer) */
+.footer {
+    padding: 40px 0;
+    background-color: var(--color-dark);
+    color: rgba(255, 255, 255, 0.6);
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+/* 10. Адаптивность (Media Queries) */
+@media (max-width: 992px) {
+    .hero-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 40px;
+    }
+    .hero-badge {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .hero-title {
+        font-size: 2.8rem;
+    }
+    .hero-buttons {
+        justify-content: center;
+    }
+    .nav {
+        display: none; /* Скрытие ссылок для упрощения мобильной версии без JS */
+    }
+}
+
+@media (max-width: 600px) {
+    .hero-title {
+        font-size: 2.2rem;
+    }
+    .hero-buttons {
+        flex-direction: column;
+    }
+    .contact-box {
+        padding: 40px 24px;
+    }
+    .section-title {
+        font-size: 2rem;
+    }
+}

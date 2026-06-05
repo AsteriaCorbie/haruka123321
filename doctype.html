@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ФитоЛаб — Искусство ухода за растениями</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="container">
+            <a href="#" class="logo">🌿 Фито<span>Лаб</span></a>
+            <nav class="nav">
+                <a href="#guide" class="nav-link">Базовый уход</a>
+                <a href="#plants" class="nav-link">Каталог знаний</a>
+                <a href="#services" class="nav-link">Услуги</a>
+            </nav>
+            <a href="#contact" class="btn btn-primary">Консультация</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Главный экран -->
+        <section class="hero">
+            <div class="container hero-container">
+                <div class="hero-content">
+                    <span class="hero-badge">Ваш гид в мире домашней ботаники</span>
+                    <h1 class="hero-title">Превратите свой дом в <span>зеленый оазис</span></h1>
+                    <p class="hero-text">Помогаем понять язык ваших растений. Простые правила полива, освещения и пересадки для здоровых и сочных листьев.</p>
+                    <div class="hero-buttons">
+                        <a href="#guide" class="btn btn-primary">Изучить основы</a>
+                        <a href="#plants" class="btn btn-secondary">Календарь полива</a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="abstract-circle"></div>
+                    <div class="plant-emoji">🪴</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Блок "Базовый уход" -->
+        <section id="guide" class="guide">
+            <div class="container">
+                <h2 class="section-title">Три столпа здорового роста</h2>
+                <div class="grid">
+                    <div class="card">
+                        <div class="card-icon">💧</div>
+                        <h3 class="card-title">Правильный полив</h3>
+                        <p class="card-text">Большинство растений гибнет от избытка влаги. Поливайте только после просыхания верхнего слоя почвы на 2–3 см.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">☀️</div>
+                        <h3 class="card-title">Баланс света</h3>
+                        <p class="card-text">Яркий рассеянный свет идеален для большинства видов. Оберегайте нежные листья от прямых полуденных лучей.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">🧪</div>
+                        <h3 class="card-title">Подкормка</h3>
+                        <p class="card-text">В период активного роста (с весны по осень) добавляйте жидкие комплексные удобрения каждые две недели.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Блок "Популярные комнатные растения" -->
+        <section id="plants" class="plants">
+            <div class="container">
+                <h2 class="section-title">Картотека неприхотливых видов</h2>
+                <div class="plants-grid">
+                    <div class="plant-card">
+                        <div class="plant-badge">Для новичков</div>
+                        <h3 class="plant-name">Монстера Делициоза</h3>
+                        <p class="plant-desc">Обожает высокую влажность воздуха и регулярное опрыскивание.</p>
+                        <div class="plant-meta">🌱 Свет: Рассеянный | 💦 Полив: Умеренный</div>
+                    </div>
+                    <div class="plant-card">
+                        <div class="plant-badge">Очищает воздух</div>
+                        <h3 class="plant-name">Сансевиерия (Тещин язык)</h3>
+                        <p class="plant-desc">Практически бессмертна. Переживет долгую засуху и тень.</p>
+                        <div class="plant-meta">🌱 Свет: Любой | 💦 Полив: Редкий</div>
+                    </div>
+                    <div class="plant-card">
+                        <div class="plant-badge">Трендовый декор</div>
+                        <h3 class="plant-name">Фикус Лирата</h3>
+                        <p class="plant-desc">Стильное дерево с крупными листьями. Не любит частые перестановки.</p>
+                        <div class="plant-meta">🌱 Свет: Яркий | 💦 Полив: Стабильный</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Форма обратной связи -->
+        <section id="contact" class="contact">
+            <div class="container contact-container">
+                <div class="contact-box">
+                    <h2>Нужна помощь эксперта?</h2>
+                    <p>Если ваше растение желтеет, сбрасывает листья или чахнет, заполните форму. Наш фитопатолог проведет онлайн-диагностику.</p>
+                    <form class="contact-form" onsubmit="event.preventDefault();">
+                        <input type="text" placeholder="Ваше имя" required>
+                        <input type="email" placeholder="Email для связи" required>
+                        <textarea placeholder="Опишите проблему (какое растение, как часто поливаете)" rows="4" required></textarea>
+                        <button type="submit" class="btn btn-primary">Получить план спасения</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 ФитоЛаб. Создано с любовью к природе.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
